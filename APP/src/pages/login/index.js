@@ -37,7 +37,7 @@ export default function Login() {
 
                 <Text
                     style={styles.esqueci}
-                    onPress={() => navigation.navigate()}
+                    onPress={() => navigation.navigate('Recuperar')}
 
                 >
                     Esqueci minha senha

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-import { Text, StyleSheet, View } from "react-native"
+import { Text, StyleSheet, View, KeyboardAvoidingView } from "react-native"
 
 import { useNavigation } from '@react-navigation/native';
 import Header1 from "../../components/header1";
@@ -17,7 +17,7 @@ export default function Login() {
 
 
     return (
-        <View style={styles.container}>
+        <KeyboardAvoidingView style={styles.container} behavior="height">
             <Header1 />
             <View style={styles.organizar}>
 
@@ -55,7 +55,7 @@ export default function Login() {
 labelbutton={'Login'}
                 />
             </View>
-        </View>
+        </KeyboardAvoidingView >
     )
 }
 

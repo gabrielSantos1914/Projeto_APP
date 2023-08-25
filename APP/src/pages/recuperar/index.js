@@ -49,7 +49,7 @@ export default function Recuperar() {
                      <Botao
                     labelButton={'Próximo'}
                     onpress={''}
-            />
+                />
             </ScrollView>
         </KeyboardAvoidingView>
     )

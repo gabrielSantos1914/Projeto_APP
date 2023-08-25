@@ -1,15 +1,16 @@
 import React, { useEffect, useState } from "react";
 
+import { useNavigation } from "@react-navigation/native";
+
 import { KeyboardAvoidingView, ScrollView, View, StyleSheet, Text } from "react-native"
 
-import { useNavigation } from "@react-navigation/native";
 import Header2 from "../../components/header2";
 import Input1 from "../../components/input1";
 import Botao from "../../components/botao";
 
 
 export default function Recuperar() {
-    const navigation = useNavigation();
+    const navigation = useNavigation('BoasVindas');
     const back = () => navigation.navigate('Login')
 
 
@@ -38,27 +39,17 @@ export default function Recuperar() {
 
                 </View>
 
-                <View style={styles.organizarInput}>
+               
                     <Input1
                         texto={'E-mail'}
                         teclado={'default'}
                         valor={email}
                         altera={setEmail}
                     />
-                </View>
-
-                <View style={styles.organizarBotao}>
-                    <Botao
-                        labelButton={'Enviar'}
-                       
-
-                    />
-
-                </View>
-
-
-
-
+                     <Botao
+                    labelButton={'Próximo'}
+                    onpress={''}
+            />
             </ScrollView>
         </KeyboardAvoidingView>
     )
@@ -95,6 +86,10 @@ const styles = StyleSheet.create({
 
     },
     
-
-
+    organizarBotao:{
+        backgroundColor:'blue',
+        height:'50%',
+        alignItems:'center',
+    },
+   
 })

@@ -2,7 +2,7 @@ import React from "react";
 
 import { StyleSheet, TouchableOpacity, Text } from "react-native";
 
-export default function Botao ({ labelbutton, onpress}) {
+export default function Botao({ labelbutton, onpress}) {
 
 
     return(
@@ -11,7 +11,7 @@ export default function Botao ({ labelbutton, onpress}) {
         onPress={onpress}> 
         
         <Text style={styles.buttonText}>
-           { labelbutton}
+           {labelbutton}
             
         
         </Text>

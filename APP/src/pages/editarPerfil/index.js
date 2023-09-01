@@ -9,7 +9,7 @@ import Input1 from "../../components/input1";
 import InputSenha from "../../components/inputSenha";
 import Botao from "../../components/botao";
 
-export default function Cadastro1() {
+export default function EditarPerfil() {
     const navigation = useNavigation();
     const onpress = () => navigation.navigate('Cadastro2')
     const back = () => navigation.navigate('Login')
@@ -20,23 +20,29 @@ export default function Cadastro1() {
     const [senha, setSenha] = useState('');
     const [telefone, setTelefone] = useState('');
     const [cpf, setCpf] = useState('');
+    const [endereco, setEndereco] = useState('');
+    const [bairro, setBairro] = useState('');
+    const [cidade, setCidade] = useState('');
+    const [cep, setCep] = useState('');
+    const [complemento, setComplemento] = useState('');
+
 
 
     return (
         <KeyboardAvoidingView style={styles.container} behavior="height">
             <ScrollView style={styles.posicao}>
 
-                <Header2
+                <Header2 style={styles.logo}
                     back={back}
                 />
 
-
-                <Text style={styles.titulo}>
-                    Faça seu cadastro
-                </Text>
+<Text style={styles.titulo}>
+    Editar as informações do perfil
+</Text>
 
 
                 <View style={styles.organizar}>
+
                     <Input1
                         texto={'Nome'}
                         teclado={'default'}
@@ -71,34 +77,63 @@ export default function Cadastro1() {
 
                     />
 
-                    <Botao
-                        labelbutton={'Próximo'}
-                        onpress={onpress}
+                    <View style={styles.organizar}>
+                        <Input1
+                            texto={'Endereco'}
+                            teclado={'default'}
+                            altera={setEndereco}
+                            valor={endereco}
+                        />
+                        <Input1
+                            texto={'Bairro'}
+                            teclado={'default'}
+                            altera={setBairro}
+                            valor={bairro}
+                        />
 
-                    />
+                        <Input1
+                            texto={'Cidade'}
+                            teclado={'default'}
+                            altera={setCidade}
+                            valor={cidade}
+
+
+                        />
+
+                        <Input1
+                            texto={'Cep'}
+                            teclado={'numeric'}
+                            valor={cep}
+                            altera={setCep}
+                        />
+                        <Input1
+                            texto={'Complemento'}
+                            teclado={'default'}
+                            valor={complemento}
+                            altera={setComplemento}
+
+                        />
+
+
+                        <Botao
+                            labelbutton={'Atualizar'}
+                            onpress={onpress}
+
+                        />
 
 
 
+                    </View>
                 </View>
-
             </ScrollView>
         </KeyboardAvoidingView>
     )
-}
+    }
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
         backgroundColor: '#B126E8'
-    },
-
-    organizar: {
-
-        paddingTop: '10%'
-    },
-
-    posicao: {
-        flex: 3
     },
 
     titulo:{
@@ -107,8 +142,17 @@ fontSize:24,
 fontWeight:'bold',
 marginLeft:'auto',
 marginRight:'auto',
-paddingTop:'15%'
+marginTop:'10%'
     },
 
+    logo: {
+backgroundColor:'blue'
+       
+    },
+
+    posicao: {
+        flex: 3
+    }
+    
 
 })

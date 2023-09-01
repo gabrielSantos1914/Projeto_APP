@@ -34,7 +34,7 @@ input:{
     fontSize: 20, 
     paddingHorizontal: 25,
     paddingVertical: 9,
-    borderRadius:12 
+    borderRadius:18 
 },
 
 

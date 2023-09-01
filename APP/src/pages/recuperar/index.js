@@ -47,7 +47,7 @@ export default function Recuperar() {
                         altera={setEmail}
                     />
                      <Botao
-                    labelButton={'Próximo'}
+                    labelbutton={'Enviar'}
                     onpress={''}
                 />
             </ScrollView>

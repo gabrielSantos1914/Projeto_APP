@@ -19,6 +19,7 @@ export default function Login() {
     return (
         <KeyboardAvoidingView style={styles.container} behavior="height">
             <Header1 />
+            
             <View style={styles.organizar}>
 
                 <Input1

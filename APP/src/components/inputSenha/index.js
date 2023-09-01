@@ -46,7 +46,7 @@ InputSenha:{
     justifyContent:'space-between',
     paddingHorizontal: 25,
     paddingVertical: 9,
-    borderRadius:12 
+    borderRadius:18 
     
 },
     senha:{

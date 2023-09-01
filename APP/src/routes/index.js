@@ -4,7 +4,8 @@ import Login from "../pages/login";
 import Cadastro1 from "../pages/cadastro1";
 import Cadastro2 from "../pages/cadastro2";
 import Recuperar from "../pages/recuperar";
-import Header3 from "../components/header3";
+import EditarPerfil from "../pages/editarPerfil";
+import Principal from "../pages/principal";
 
 
 const Stack = createNativeStackNavigator();
@@ -42,8 +43,14 @@ options={{headerShown: false}}
 />
 
 <Stack.Screen
-name="Header3"
-component={Header3}
+
+name="EditarPerfil"
+component={EditarPerfil}
+options={{headerShown: false}}
+/>
+<Stack.Screen
+name="Principal"
+component={Principal}
 options={{headerShown: false}}
 />
 

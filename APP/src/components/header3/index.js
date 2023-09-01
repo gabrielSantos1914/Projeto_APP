@@ -4,7 +4,7 @@ import { Ionicons } from '@expo/vector-icons';
 
 import { useNavigation } from "@react-navigation/native";
 
-import { Feather } from '@expo/vector-icons';
+
 
 import { View, Image, StyleSheet } from "react-native";
 
@@ -18,7 +18,7 @@ export default function Header3({ back }) {
             <View style={styles.volta}>
                 <Ionicons style={styles.iconeVoltar}
                     name="arrow-back-circle-sharp"
-                    size={50}
+                    size={70}
                     color="black"
                     onPress={back}
                 />
@@ -31,12 +31,7 @@ export default function Header3({ back }) {
                 style={styles.headerImage}
             />
 
-            <Feather 
-            name="search"
-             size={24} 
-             color="black" 
-             style={styles.headerBusca}
-             />
+        
         </View>
     )
 
@@ -44,39 +39,28 @@ export default function Header3({ back }) {
 
 const styles = StyleSheet.create({
     containerHeader: {
-        flex: 0.3,
-
+        height:200,
         flexDirection: 'row'
-
-
-
     },
 
     headerImage: {
         marginTop: '15%',
-        width: '20%',
-        height: '44%',
+        width: 80,
+        height: 110,
         marginLeft: '20%',
         marginRight: 'auto',
 
 
     },
     volta: {
-        width: '20%',
-        height: '40%',
         marginTop: 50,
         paddingLeft: 5,
-        backgroundColor: 'blue',
-        paddingTop: 10
+        paddingTop: 10,
+        
     },
 
     iconeVoltar: {
-        paddingLeft: 10
+
+
     },
-
-    headerBusca:{
-        width:'20%',
-        marginTop:'20%'
-    }
-
 })

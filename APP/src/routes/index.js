@@ -6,6 +6,7 @@ import Cadastro2 from "../pages/cadastro2";
 import Recuperar from "../pages/recuperar";
 import EditarPerfil from "../pages/editarPerfil";
 import Principal from "../pages/principal";
+import Footer from "../components/footer";
 
 
 const Stack = createNativeStackNavigator();
@@ -53,7 +54,11 @@ name="Principal"
 component={Principal}
 options={{headerShown: false}}
 />
-
+<Stack.Screen
+name="Footer"
+component={Footer}
+options={{headerShown: false}}
+/>
 
 
 

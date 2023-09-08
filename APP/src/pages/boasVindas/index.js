@@ -12,7 +12,7 @@ export default function BoasVindas(){
 
     useEffect(() => { //aplica o tempo para carregamento do app e chama a próxima tela
         const timer = setTimeout(() => {
-            navigation.navigate('Footer')
+            navigation.navigate('Login')
         }, 3000);
 
         return () => clearTimeout(timer);

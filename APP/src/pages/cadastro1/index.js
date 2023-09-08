@@ -9,11 +9,10 @@ import Input1 from "../../components/input1";
 import InputSenha from "../../components/inputSenha";
 import Botao from "../../components/botao";
 
-export default function Cadastro1() {
-    const navigation = useNavigation();
-    const onpress = () => navigation.navigate('Cadastro2')
-    const back = () => navigation.navigate('Login')
 
+export default function Cadastro1({ navigation }) {
+    // const navigation = useNavigation();
+    const back = () => navigation.navigate('Login')
 
     const [nome, setNome] = useState('');
     const [email, setEmail] = useState('');
@@ -21,6 +20,25 @@ export default function Cadastro1() {
     const [telefone, setTelefone] = useState('');
     const [cpf, setCpf] = useState('');
 
+    const avancar = () => {
+        if ( nome === '' || email === '' || senha === '' || telefone === '' || cpf === ''){
+            Alert.alert('Preencha as informações corretamente.')
+            return;
+        }
+        navigation.navigate('Cadastro2', {
+            nome,
+            email,
+            senha,
+            telefone,
+            cpf
+        }
+        ), console.log(nome)
+        console.log(email)
+        console.log(senha)
+        console.log(telefone)
+        console.log(cpf)
+
+    }
 
     return (
         <KeyboardAvoidingView style={styles.container} behavior="height">

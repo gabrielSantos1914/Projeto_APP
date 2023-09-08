@@ -1,25 +1,78 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react';
 
-import { Text, StyleSheet, View, KeyboardAvoidingView } from "react-native"
+import { Text, StyleSheet, View, KeyboardAvoidingView, Alert} from 'react-native'
 
 import { useNavigation } from '@react-navigation/native';
-import Header1 from "../../components/header1";
-import Input1 from "../../components/input1";
-import InputSenha from "../../components/inputSenha";
-import Botao from "../../components/botao";
+import axios from 'axios';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import Header1 from '../../components/header1';
+import Input1 from '../../components/input1';
+import InputSenha from '../../components/inputSenha';
+import Botao from '../../components/botao';
 
 
-export default function Login() {
+export default function Login({navigation}) {
 
-    const navigation = useNavigation();
+  
     const [email, setEmail] = useState('');
     const [senha, setSenha] = useState('');
+    const clienteId = 1;
+
+    const atualizaPagina = () => navigation.replace('Login');
+    const goSenha = () => navigation.navigate('Senha');
+    const goCadastro = () => navigation.navigate('Cadastro1');
+
+    
+    useEffect(() => { //chama a função especificada a cada renderização da tela.
+        fetchToken();
+    }, [])
+
+    const fetchToken = async () => {
+        try {
+            const token = await AsyncStorage.getItem('authToken')
+        }
+        catch (error) {
+            console.error('Não foi possível obter o token do AsyncStorage.', error)
+        }
+    }
+
+    const efetuaLogin = async () => {
+        try {
+            const resposta = await axios.post('http://192.168.1.7:3000/auth', {
+                email: email,
+                senha: senha
+            },
+
+                console.log(email),
+                console.log(senha)
+            )
+
+            if (resposta.status === 200) {
+                const token = resposta.data.token;
+                await AsyncStorage.setItem('authToken', token)
+                console.log(token)
+                Alert.alert('Login efetuado com sucesso!')
+                goNext();
+                console.log(clienteId)
+                setEmail('');
+                setSenha('');
+            }
+
+        } catch (error) {
+            console.error('Erro de autenticação: ', error),
+                Alert.alert('Ocorreu um erro, email ou senha incorretos. Tente novamente.')
+                atualizaPagina();
+            setEmail('');
+            setSenha('');
+          
+        }
+    }
 
 
     return (
         <KeyboardAvoidingView style={styles.container} behavior="height">
             <Header1 />
-            
+
             <View style={styles.organizar}>
 
                 <Input1
@@ -53,7 +106,8 @@ export default function Login() {
                 </View>
 
                 <Botao
-labelbutton={'Login'}
+                    labelbutton={'Login'}
+                    onpress={efetuaLogin}
                 />
             </View>
         </KeyboardAvoidingView >
@@ -98,7 +152,7 @@ const styles = StyleSheet.create({
         fontWeight: 'bold',
         marginBottom: 20,
     },
-    
+
 
 })
 

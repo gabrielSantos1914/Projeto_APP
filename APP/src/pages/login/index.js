@@ -38,7 +38,7 @@ export default function Login({navigation}) {
 
     const efetuaLogin = async () => {
         try {
-            const resposta = await axios.post('http://192.168.1.7:3000/auth', {
+            const resposta = await axios.post('http://192.168.49.45:3000/auth', {
                 email: email,
                 senha: senha
             },

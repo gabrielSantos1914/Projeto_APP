@@ -3,7 +3,7 @@ import React, {useState} from "react";
 import {  View, TextInput, StyleSheet, TouchableOpacity } from 'react-native';
 import {Ionicons} from '@expo/vector-icons';
 
-export default function InputSenha(valor, senha, altera, teclado){
+export default function InputSenha({valor, altera, teclado}){
     const [showPassword, setShowPassword] = useState(false); 
 
     const togglePasswordVisibility = () => {

@@ -8,9 +8,9 @@ import Header2 from '../../components/header2';
 import Input1 from "../../components/input1";
 import Botao from "../../components/botao";
 
-export default function Cadastro2() {
-    const navigation = useNavigation();
-    const onpress = () => navigation.navigate('')
+export default function Cadastro2({ route, navigation }) {
+
+
     const back = () => navigation.navigate('Cadastro1')
 
 
@@ -20,6 +20,40 @@ export default function Cadastro2() {
     const [cep, setCep] = useState('');
     const [complemento, setComplemento] = useState('');
 
+    const { nome, email, senha, telefone, cpf } = route.params;
+
+
+    const enviaDados = async () => {
+        if (endereco === '' || bairro === '' || cidade === '' || cep === '') {
+            Alert.alert('Preencha as informações corretamente.')
+            return;
+        }
+        const dadosCadastro = {
+            nome,
+            email,
+            senha,
+            telefone,
+            cpf,
+            endereco,
+            bairro,
+            cidade,
+            cep,
+            complemento
+        };
+        try {
+            const resposta = await axios.post('http://162.168.49.45:3000/clients', dadosCadastro)
+            console.log('Dados enviados com sucesso: ', resposta.data);
+            Alert.alert('Cadastro efetuado com sucesso.');
+            navigation.navigate('Login');
+        }
+        catch (error) {
+            console.error('Erro ao enviar os dados: ', error);
+            Alert.alert('Não foi possível realizar o cadastro. Tente novamente mais tarde.');
+            setEndereco('') //se você quiser limpar os campos.
+
+        }
+
+    }
 
     return (
         <KeyboardAvoidingView style={styles.container}>
@@ -72,7 +106,7 @@ export default function Cadastro2() {
 
                     <Botao
                         labelbutton={'Próximo'}
-                        onpress={onpress}
+                        onpress={enviaDados}
 
                     />
 

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-import { Text, StyleSheet, View, KeyboardAvoidingView, Alert} from 'react-native'
+import { Text, StyleSheet, View, KeyboardAvoidingView, Alert } from 'react-native'
 
 import { useNavigation } from '@react-navigation/native';
 import axios from 'axios';
@@ -11,18 +11,20 @@ import InputSenha from '../../components/inputSenha';
 import Botao from '../../components/botao';
 
 
-export default function Login({navigation}) {
+export default function Login({ navigation }) {
 
-  
+
     const [email, setEmail] = useState('');
     const [senha, setSenha] = useState('');
     const clienteId = 1;
 
+    const goNext = () => navigation.navigate('Skates', { clienteId })
     const atualizaPagina = () => navigation.replace('Login');
     const goSenha = () => navigation.navigate('Senha');
     const goCadastro = () => navigation.navigate('Cadastro1');
-
     
+
+
     useEffect(() => { //chama a função especificada a cada renderização da tela.
         fetchToken();
     }, [])
@@ -52,7 +54,7 @@ export default function Login({navigation}) {
                 await AsyncStorage.setItem('authToken', token)
                 console.log(token)
                 Alert.alert('Login efetuado com sucesso!')
-                goNext();
+                goNext('Skate');
                 console.log(clienteId)
                 setEmail('');
                 setSenha('');
@@ -61,10 +63,10 @@ export default function Login({navigation}) {
         } catch (error) {
             console.error('Erro de autenticação: ', error),
                 Alert.alert('Ocorreu um erro, email ou senha incorretos. Tente novamente.')
-                atualizaPagina();
+            atualizaPagina();
             setEmail('');
             setSenha('');
-          
+
         }
     }
 
@@ -91,7 +93,7 @@ export default function Login({navigation}) {
 
                 <Text
                     style={styles.esqueci}
-                    onPress={() => navigation.navigate('Recuperar')}
+                    onPress={goSenha}
 
                 >
                     Esqueci minha senha
@@ -101,7 +103,7 @@ export default function Login({navigation}) {
                         Ainda não tem conta?
                     </Text>
                     <Text style={styles.cadastroLink}
-                        onPress={() => navigation.navigate('Cadastro1')}
+                        onPress={goCadastro}
                     > Cadastre-se!</Text>
                 </View>
 

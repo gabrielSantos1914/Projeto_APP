@@ -13,7 +13,7 @@ export default function BoasVindas(){
 
     useEffect(() => { //aplica o tempo para carregamento do app e chama a próxima tela
         const timer = setTimeout(() => {
-            navigation.navigate('Skates')
+            navigation.navigate('Principal')
         }, 3000);
 
         return () => clearTimeout(timer);

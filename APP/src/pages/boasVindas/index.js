@@ -5,6 +5,7 @@ import { StyleSheet, Image, View } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 
 import * as Animatable from 'react-native-animatable'
+import Skates from "../skates";
 
 export default function BoasVindas(){
 
@@ -12,7 +13,7 @@ export default function BoasVindas(){
 
     useEffect(() => { //aplica o tempo para carregamento do app e chama a próxima tela
         const timer = setTimeout(() => {
-            navigation.navigate('Login')
+            navigation.navigate('Skates')
         }, 3000);
 
         return () => clearTimeout(timer);

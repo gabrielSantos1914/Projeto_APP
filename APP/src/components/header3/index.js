@@ -10,7 +10,7 @@ import { View, Image, StyleSheet } from "react-native";
 
 export default function Header3({ back }) {
 
-    const navigation = useNavigation();
+    const navigation = useNavigation("Principal");
     return (
 
         <View style={styles.containerHeader}>
@@ -39,12 +39,12 @@ export default function Header3({ back }) {
 
 const styles = StyleSheet.create({
     containerHeader: {
-        height:200,
+        height:135,
         flexDirection: 'row'
     },
 
     headerImage: {
-        marginTop: '15%',
+        marginTop: 10,
         width: 80,
         height: 110,
         marginLeft: '20%',
@@ -53,7 +53,7 @@ const styles = StyleSheet.create({
 
     },
     volta: {
-        marginTop: 50,
+        marginTop: 10,
         paddingLeft: 5,
         paddingTop: 10,
         

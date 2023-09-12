@@ -7,6 +7,8 @@ import Recuperar from "../pages/recuperar";
 import EditarPerfil from "../pages/editarPerfil";
 import Principal from "../pages/principal";
 import Footer from "../components/footer";
+import Skates from "../pages/skates";
+import Produtos from "../pages/produtos";
 
 
 const Stack = createNativeStackNavigator();
@@ -55,8 +57,18 @@ component={Principal}
 options={{headerShown: false}}
 />
 <Stack.Screen
+name="Skates"
+component={Skates}
+options={{headerShown: false}}
+/>
+<Stack.Screen
 name="Footer"
 component={Footer}
+options={{headerShown: false}}
+/>
+<Stack.Screen
+name="Produtos"
+component={Produtos}
 options={{headerShown: false}}
 />
 

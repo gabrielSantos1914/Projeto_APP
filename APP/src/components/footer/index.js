@@ -1,34 +1,30 @@
 import React from "react";
-import { Feather } from '@expo/vector-icons';
-import { MaterialCommunityIcons } from '@expo/vector-icons';
-import { AntDesign } from '@expo/vector-icons';
-
-
-import { StyleSheet, View } from "react-native";
+import { Image, StyleSheet, View } from "react-native";
 
 export default function Footer() {
 
     return (
         <View style={styles.container}>
             <View style={styles.footer}>
+                <Image
+                    style={styles.icon}
+                    source={require("../../assets/icons/user.png")}
+                />
 
-                <Feather style={styles.users}
-                    name="user"
-                    size={54}
-                    color="black" />
+                <Image
+                    style={styles.icon}
+                    source={require("../../assets/icons/skateboard.png")}
+                />
 
+                <Image
+                    style={styles.icon}
+                    source={require("../../assets/icons/accessory.png")}
+                />
 
-                <MaterialCommunityIcons style={styles.skate} name="skateboard"
-                    size={60}
-                    color="black" />
-
-                    <AntDesign style={styles.carrinho}
-                    name="shoppingcart"
-                     size={60} 
-                     color="black" />
-
-
-
+                <Image
+                    style={styles.icon}
+                    source={require("../../assets/icons/shoppingcart.png")}
+                />
             </View>
         </View>
     )
@@ -37,26 +33,20 @@ export default function Footer() {
 const styles = StyleSheet.create({
 
     container: {
-        flex: 1,
-
+        
     },
 
     footer: {
-        flexDirection: 'row'
+        flexDirection: 'row',
+        justifyContent: 'space-around',
+        alignItems: 'center',
+        // backgroundColor: 'lightgray',
+        paddingVertical: 7,
     },
-    users: {
-        marginTop: 100
-    },
-    skate: {
-        marginTop: 100
-    },
-    carrinho:{
-        marginTop:100
+
+    icon: {
+        width: 45,
+        height: 45,
+        resizeMode: 'contain',
     }
-
-
-
-}
-)
-
-
+});
